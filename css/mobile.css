@@ -147,6 +147,5 @@
   .contact{padding-bottom:calc(clamp(48px,6vw,72px) + var(--tabh) + env(safe-area-inset-bottom,0px))}
   .out{gap:0 8px}
   .out a{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
-  .note{font-size:.82rem}
   .sknote{font-size:.82rem}
 }

@@ -208,7 +208,6 @@
 .out{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:12px}
 .out a{font-weight:500}
 .out a:hover{color:var(--sand)}
-.note{margin-top:40px;max-width:36rem;font-size:.78rem;line-height:1.5;color:var(--night-2)}
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}
   .cr{animation:none;opacity:0}
