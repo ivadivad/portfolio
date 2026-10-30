@@ -72,8 +72,7 @@ ev_d:'A showcase that reads a JSON file of products, with a side carousel built 
 py_k:'Python script orchestrator',
 py_d:'Schedules and runs Python scripts (cron, interval or a single date) in isolated subprocesses, with a time limit and retries. Logs arrive in real time over WebSocket, and the dashboard keeps the execution history.',
 h_gh:'GitHub activity',gh_note:'The GitHub contribution calendar, as it appears on the profile.',gh_prof:'View GitHub profile',
-h_cont:'Shall we talk about data?',sub_cont:'Available immediately. São Paulo (SP), open to remote work.',
-note:'End of the demo. The texts come from Davi\'s resume; layout, voice and section order are proposals to adjust.'
+h_cont:'Shall we talk about data?',sub_cont:'Available immediately. São Paulo (SP), open to remote work.'
 };
 /* barra de fórmulas: cada seção mostra uma fórmula que de fato dá o valor daquela seção */
 const FX={
