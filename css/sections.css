@@ -1,0 +1,216 @@
+/* Seções: Formação, Competências, Experiência, Projetos e Contato. */
+/* formação: um cartão grande para a graduação e um por certificado, todos à vista (sem carrossel nem rolagem lateral) */
+.st{display:inline-block;padding:1px 11px;border-radius:999px;background:var(--sand);color:var(--ink);font-size:.76rem;font-weight:500;line-height:1.6}
+.fm{display:grid;gap:16px;min-width:0;container:fm / inline-size}
+.fm-ty{font:400 11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.fm-when{font-size:.92rem;line-height:1.5;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.fm-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 16px}
+.fm-deg{padding:16px 22px 18px;background:var(--paper);border:1px solid var(--line-2);border-top:3px solid var(--ink)}
+.fm-deg h3{margin-top:10px;font:850 clamp(1.75rem,3.4vw,2.3rem)/1.04 var(--display);font-stretch:66%;letter-spacing:-.02em;word-spacing:.16em;text-wrap:balance}
+.fm-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 24px;margin-top:8px}
+.fm-un{font-size:1.02rem;font-weight:500;line-height:1.5;color:var(--ink)}
+.fm-certs{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.fm-cert{min-width:0;padding:12px 16px 16px;background:var(--paper);border:1px solid var(--line-2)}
+.fm-cert .fm-when{font-size:.85rem}
+.fm-cert h3{margin-top:8px}
+.fm-k{display:block;font:850 1.7rem/1.05 var(--display);font-stretch:66%;letter-spacing:-.015em;word-spacing:.16em}
+.fm-w{display:block;margin-top:6px;font:400 .9rem/1.5 var(--font);color:var(--ink-2)}
+@container fm (min-width:600px){.fm-certs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* competências: as três ferramentas do título em destaque e, abaixo, quatro áreas com etiquetas */
+.cp{display:grid;gap:16px;min-width:0;container:cp / inline-size}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.cp-tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cp-tool{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:0 12px;min-width:0;padding:12px 16px 14px;background:var(--sand);border:1px solid var(--line-2)}
+.cp-tool b{font:850 clamp(2rem,4vw,2.75rem)/1.05 var(--display);font-stretch:66%;letter-spacing:-.02em;word-spacing:.16em}
+.cp-tool span{font-size:.9rem;line-height:1.4;color:var(--ink-2)}
+.cp-areas{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@container cp (min-width:592px){.cp-areas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cp-area{min-width:0;padding:14px 16px 16px;background:var(--paper);border:1px solid var(--line-2)}
+.cp-area h3{font:600 1.05rem/1.3 var(--font)}
+.cp-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.cp-chips li{padding:3px 11px;border:1px solid var(--line-2);border-radius:6px;background:var(--paper-2);font-size:.9rem;line-height:1.45;color:var(--ink)}
+.cp-chips li.f{background:var(--sand);font-weight:500}
+@container cp (min-width:560px) and (max-width:839px){.cp-tool{flex-direction:column;align-items:flex-start;gap:2px}}
+@container cp (max-width:559px){
+  .cp-tools{gap:8px}
+  .cp-tool{flex-direction:column;align-items:flex-start;gap:0;padding:8px 10px 10px}
+  .cp-tool b{font-size:clamp(1.15rem,6.2vw,2rem);word-spacing:.12em}
+  .cp-tool span{font-size:.76rem;line-height:1.3}
+}
+@media (max-width:599px){
+  .fm,.cp,.fm-certs,.cp-areas{gap:12px}
+  .fm-deg{padding:14px 16px 16px}
+  .fm-un{font-size:.98rem}
+  .fm-cert{padding:10px 14px 12px}
+  .fm-k{font-size:1.55rem}
+  .cp-area{padding:12px 14px 14px}
+  .cp-chips{gap:6px;margin-top:10px}
+  .cp-chips li{padding:2px 10px;font-size:.88rem}
+}
+.cp>.sknote{margin-top:-4px}
+.sknote{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:.8rem;color:var(--ink-3)}
+.sknote i{display:inline-block;width:14px;height:14px;background:var(--sand);border:1px solid var(--line-2)}
+
+/* experiência: uma frase por cargo e detalhes sob demanda */
+.tl{margin-top:clamp(20px,2.6vw,32px);border-left:2px solid var(--ink)}
+.tl>li{position:relative;display:grid;grid-template-columns:minmax(0,10.5rem) minmax(0,1fr);gap:6px 28px;padding:0 0 26px 26px}
+.tl>li:last-child{padding-bottom:0}
+.tl>li::before{content:"";position:absolute;left:-8px;top:.42em;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.tl>li:first-child::before{background:var(--red);border-color:var(--red)}
+@media (max-width:679px){.tl>li{grid-template-columns:minmax(0,1fr)}}
+.tl time{display:block;font-size:.85rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tl h3{font-size:1.1rem;font-weight:600;line-height:1.3}
+.tl .co{color:var(--ink-3);font-size:.88rem}
+.tl .one{margin-top:6px;font-weight:500;max-width:38rem}
+.more{margin-top:10px;max-width:42rem}
+.more summary{cursor:pointer;width:max-content;max-width:100%;font-size:.85rem;font-weight:500;color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--clay);text-decoration-thickness:2px;text-underline-offset:4px}
+.more ul{margin-top:10px;padding-left:1.1rem;list-style:disc;color:var(--ink-2);font-size:.92rem}
+.more li{margin-top:6px}
+
+/* projetos: mini-paper com ficha à esquerda e texto à direita */
+.paper{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr);gap:clamp(28px,5vw,64px);margin-top:clamp(24px,3.2vw,40px);padding-top:clamp(18px,2.4vw,28px);border-top:2px solid var(--ink)}
+.paper+.paper{margin-top:clamp(36px,4.6vw,60px)}
+.ficha{align-self:start;min-width:0}
+@media (min-width:860px) and (min-height:760px){.ficha{position:sticky;top:calc(var(--bh) + 24px + env(safe-area-inset-top,0px))}}
+@media (max-width:859px){.paper{grid-template-columns:minmax(0,1fr)}}
+.ficha h3{font:850 2.3rem/.98 var(--display);font-stretch:66%;letter-spacing:-.02em;word-spacing:.14em}
+.ficha .st{margin-top:10px}
+.when{margin-top:8px;color:var(--ink-2);font-size:.875rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tags li{border:1px solid var(--line-2);background:var(--paper-2);border-radius:6px;padding:2px 9px;font-size:.78rem;color:var(--ink-2)}
+.ficha h4{margin-top:26px}
+.loop{margin-top:14px;border:1.5px dashed var(--ink-3);border-radius:10px;padding:8px 12px;font-size:.78rem;color:var(--ink-2);line-height:1.4}
+.lnk{margin-top:18px;font-size:.9rem;font-weight:500}
+.lnk a{text-underline-offset:4px;text-decoration-thickness:2px;text-decoration-color:var(--clay)}
+.body{min-width:0}
+.ps{padding-top:16px;margin-top:16px;border-top:1px solid var(--line)}
+.ps:first-child{padding-top:0;margin-top:0;border-top:0}
+.ps p{color:var(--ink-2);max-width:42rem}
+.ps p.big{font-size:clamp(1.2rem,2.3vw,1.6rem);font-weight:500;line-height:1.35;color:var(--ink);letter-spacing:-.01em;max-width:34rem}
+.ps figure+p{margin-top:16px}
+.rw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,13rem);gap:16px 32px;align-items:center}
+@media (max-width:700px){.rw{grid-template-columns:minmax(0,1fr)}}
+.wf{display:block;width:100%;max-width:13rem;height:auto;aspect-ratio:1/1}
+.wfk{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:10px;font-size:.78rem;color:var(--ink-2)}
+.wfk i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--sage);border:1px solid rgba(42,42,33,.35)}
+.wfk i.t{background:var(--red);border-color:var(--red)}
+.nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 0}
+.nums div{display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:3px;padding:2px 14px}
+.nums div:nth-child(odd){padding-left:0}
+.nums dd{font:850 2.7rem/1 var(--display);font-stretch:66%;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.nums dt{font-size:.8rem;color:var(--ink-2);line-height:1.35}
+@media (min-width:600px){
+  .nums{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .nums div{border-left:1px solid var(--line);padding-left:14px}
+  .nums div:first-child{border-left:0;padding-left:0}
+}
+
+/* linhagem do dado: lista vertical com setas rotuladas */
+.lin{margin-top:8px}
+.lin li{position:relative;padding-left:26px}
+.lin .nd::before{content:"";position:absolute;left:0;top:.34em;width:12px;height:12px;border-radius:3px;background:var(--ink)}
+.lin .nd::after{content:"";position:absolute;left:5px;top:calc(.34em + 12px);bottom:0;width:2px;background:var(--ink-3)}
+.lin .nd:last-child::after{display:none}
+.lin .nd b{display:block;font-size:.9rem;font-weight:600;line-height:1.3}
+.lin .nd small{display:block;color:var(--ink-2);font-size:.78rem;line-height:1.4;margin-top:1px}
+.lin .nd.fin::before{background:var(--red)}
+.lin .nd.nx::before{background:var(--paper);border:2px dashed var(--ink-3)}
+.lin .ed{padding-block:9px;font-size:.76rem;line-height:1.35;color:var(--ink-3)}
+.lin .ed::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;background:var(--ink-3)}
+.lin .ed::after{content:"";position:absolute;left:.5px;bottom:-1px;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid var(--ink-3)}
+.lin .ed.dash::before{background:none;width:0;border-left:2px dashed var(--ink-3)}
+.lin .nd.nx::after{display:none}
+
+/* gráfico de pontos e faixas */
+.plot{margin-top:14px}
+.plot figcaption{font-size:.85rem;color:var(--ink-2);margin-bottom:8px}
+.pr,.ax{display:grid;grid-template-columns:minmax(0,10.5rem) minmax(0,1fr) 7.6rem;gap:4px 14px;align-items:center}
+.pr{padding:7px 0;border-top:1px solid var(--line)}
+.pl{font-size:.85rem;line-height:1.3}
+.pv{font-size:.85rem;font-weight:600;text-align:right;line-height:1.25;font-variant-numeric:tabular-nums}
+.pt{position:relative;height:16px}
+.pt::before{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:var(--line)}
+.sg{position:absolute;top:3px;height:10px;min-width:10px;border-radius:5px;background:var(--ink-2)}
+.dt{position:absolute;top:0;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--ink-2);box-shadow:0 0 0 2px var(--paper)}
+.sg.e,.dt.e{background:var(--red)}
+.ax>div{grid-column:2;position:relative;height:18px}
+.ax span{position:absolute;top:2px;transform:translateX(-50%);font-size:.7rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.ax span:first-child{transform:none}
+.ax span:last-child{transform:translateX(-100%)}
+@media (max-width:640px){
+  .pr,.ax{grid-template-columns:minmax(0,1fr) 6.4rem}
+  .pl{grid-column:1/-1}
+  .ax>div{grid-column:1}
+}
+.tbl{margin-top:10px;font-size:.8rem;color:var(--ink-2)}
+.tbl summary{cursor:pointer;width:max-content;max-width:100%}
+.tbl table{border-collapse:collapse;margin-top:8px;width:100%}
+.tbl th,.tbl td{text-align:left;padding:5px 12px 5px 0;border-top:1px solid var(--line);font-weight:400;vertical-align:top}
+.tbl th{font-weight:600;color:var(--ink)}
+
+/* projetos: parágrafos seguidos, cartões dos outros projetos e a atividade no GitHub */
+.ps p+p{margin-top:10px}
+.ficha .nt{margin-top:10px;font-size:.85rem;line-height:1.5;color:var(--ink-3)}
+.pcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr));gap:16px}
+.pc{display:flex;flex-direction:column;min-width:0;padding:14px 16px 16px;background:var(--paper);border:1px solid var(--line-2)}
+.pch{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 12px}
+.pc h4{margin:0;font:600 1.2rem/1.25 var(--font);letter-spacing:0;text-transform:none;color:var(--ink)}
+.pcw{font-size:.8rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.pck{margin-top:2px;font-size:.82rem;line-height:1.5;color:var(--ink-3)}
+.pck .st{margin:0 0 0 8px;padding:0 9px;font-size:.72rem}
+.pcd{margin-top:10px;font-size:.92rem;line-height:1.55;color:var(--ink-2)}
+.pc .lnk{margin-top:auto;padding-top:14px}
+
+/* atividade no GitHub: uma célula por dia, cinco níveis de um só matiz (o verde da paleta), do mais claro ao mais escuro */
+:is(.hc,.ghl i)[data-l="1"]{--hv:var(--hm1)}
+:is(.hc,.ghl i)[data-l="2"]{--hv:var(--hm2)}
+:is(.hc,.ghl i)[data-l="3"]{--hv:var(--hm3)}
+:is(.hc,.ghl i)[data-l="4"]{--hv:var(--hm4)}
+.ghbox{position:relative;margin-top:18px;--cs:11px;--gp:2px;--lw:30px}
+.ghw{overflow-x:auto;padding:3px 3px 8px 0}
+.ghi{width:100%;min-width:calc(var(--lw) + var(--nc) * (var(--cs) + var(--gp)))}
+.ghm,.ghr{display:grid;grid-template-columns:var(--lw) repeat(var(--nc),minmax(0,1fr));column-gap:var(--gp)}
+.ghm{height:18px;margin-bottom:4px}
+.ghm span{grid-row:1;white-space:nowrap;font:400 11px/18px var(--mono);color:var(--ink-3)}
+.ghg{display:grid;row-gap:var(--gp)}
+.ghr .rh{position:sticky;left:0;z-index:1;grid-column:1;grid-row:1;align-self:center;background:var(--paper);font:400 10px/1 var(--mono);color:var(--ink-3)}
+.hc{grid-row:1;aspect-ratio:1/1;border-radius:2px;background:var(--hv,var(--hm0))}
+.hc:hover,.hc:focus,.hc:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
+.ghh{margin-top:6px;font-size:.78rem;color:var(--ink-3)}
+.ghf{display:flex;justify-content:flex-end;margin-top:8px;font-size:.78rem;color:var(--ink-2)}
+.ghl{display:flex;align-items:center;gap:4px}
+.ghl span{margin:0 4px}
+.ghl i{display:block;width:11px;height:11px;border-radius:2px;background:var(--hv,var(--hm0))}
+.tip{position:absolute;z-index:3;left:0;top:0;pointer-events:none;padding:5px 10px;border-radius:4px;background:var(--ink);color:var(--paper);font:400 12px/1.4 var(--font);white-space:nowrap;opacity:0;visibility:hidden;transition:opacity .12s,visibility 0s .12s}
+.tip.on{opacity:1;visibility:visible;transition-delay:0s}
+.tip b{font-weight:600;margin-right:8px}
+.tip span{color:var(--night-2)}
+.gha .tbl td:not(:first-child){font-variant-numeric:tabular-nums}
+.gha .tbl p{margin-top:6px}
+.gha p.big{text-wrap:balance}
+.ghbox{max-width:56rem}
+/* seções largas (cartões e calendário): entre 860 e 1279 px a coluna do conteúdo ficaria estreita, então a ficha vai para cima e o conteúdo usa a largura toda */
+@media (min-width:860px) and (max-width:1279px){.paper.wide{grid-template-columns:minmax(0,1fr);row-gap:28px}.paper.wide .ficha{position:static}}
+@media (forced-colors:active){.hc,.ghl i{forced-color-adjust:none}}
+
+/* contato: a cortina sobe e revela este painel */
+.contact{position:sticky;bottom:0;z-index:0;min-height:min(100vh,620px);min-height:min(100svh,620px);display:flex;align-items:center;background:var(--night);color:var(--night-ink);overflow:hidden;padding-block:clamp(48px,6vw,72px)}
+.ci{opacity:calc(.25 + var(--r,1) * .75);transform:translateY(calc((1 - var(--r,1)) * 48px)) scale(calc(.94 + var(--r,1) * .06));transform-origin:50% 60%}
+.contact h2{color:var(--night-ink);max-width:14ch;font:850 clamp(3rem,9vw,7.6rem)/.9 var(--display);font-stretch:66%;letter-spacing:-.025em;text-wrap:balance}
+.contact .sub{margin-top:16px;color:var(--night-2)}
+.mailf{margin-top:30px}
+.mail{display:inline-flex;align-items:center;gap:12px;max-width:100%;font:600 clamp(1rem,2.6vw,1.45rem)/1.3 var(--font);text-decoration:none;color:var(--night-ink);background:rgba(237,232,208,.08);border:1px solid rgba(237,232,208,.28);border-radius:10px;padding:12px 16px;transition:background .15s,border-color .15s}
+.mail .mi{width:1.15em;height:1.15em;color:var(--clay)}
+.mail:hover{background:rgba(237,232,208,.16);border-color:var(--clay)}
+.mailf .mhint{position:static;display:block;max-width:none;margin-top:10px;min-height:1.45em;color:var(--night-2)}
+.contact ::selection{background:var(--clay);color:var(--night)}
+.out{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:12px}
+.out a{font-weight:500}
+.out a:hover{color:var(--sand)}
+.note{margin-top:40px;max-width:36rem;font-size:.78rem;line-height:1.5;color:var(--night-2)}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+  .cr{animation:none;opacity:0}
+  .ci{opacity:1;transform:none}
+}

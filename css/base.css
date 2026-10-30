@@ -1,0 +1,178 @@
+/* Portfólio de Davi Guimarães: base (reset, cores, tipografia e abertura em formato de planilha).
+   Ordem de carga: base.css, sections.css e mobile.css. */
+/* reset da página: áreas seguras do celular, margens, imagens e o atributo hidden */
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}
+img{max-width:100%}
+[hidden]:not([hidden=until-found i]){display:none!important}
+
+/* O começo da página é uma planilha: barra de fórmulas com navegação, letras de coluna e grade. Depois dele, papel liso.
+   Papel fosco a partir do #EDE8D0 pedido pelo Davi, tinta quase preta e um único vermelho (Tomato Jam, da paleta dele).
+   Quatro vozes: Archivo condensada (títulos), Instrument Serif itálica (a palavra de destaque), JetBrains Mono (rótulos da planilha)
+   e Poppins (texto corrido). Contraste sobre --paper: ink 13:1, ink-2 8:1, ink-3 5,9:1, red-ink 5,3:1; branco sobre --red 5,2:1. */
+:root{
+  --paper:#EDE8D0; --paper-rgb:237,232,208; --paper-2:#E3DDC1; --paper-3:#D8D1B3; --paper-4:#FBF8EA; --line:#CBC4A5; --line-2:#B5AE8E;
+  --ink:#1E1D15; --ink-2:#403F31; --ink-3:#5C5741;
+  --red:#C93638; --red-ink:#AE2E30; --clay:#D08C63; --teal:#2F6671; --sand:#E2C98A; --sage:#B4BD96; --moss:#5C7A3B;
+  --night:#26251C; --night-ink:#EDE8D0; --night-2:#BEB99D;
+  --hm0:var(--paper-2); --hm1:#8EA975; --hm2:#6F8B52; --hm3:#516E31; --hm4:#39501D; /* calendário do GitHub: um só matiz (verde da paleta), luminosidade em queda com passos acima de 0,06; o nível 1 tem 2,1:1 sobre o papel */
+  --grid:rgba(30,29,21,.085);
+  --font:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+  --pad:clamp(20px,4vw,56px);
+  --gl:max(var(--pad),env(safe-area-inset-left,0px)); --gr:max(var(--pad),env(safe-area-inset-right,0px));
+  --rh:28px; --fxh:38px; --colh:24px; --cw:120px;
+  --g2:calc(var(--rh) * 2); --sec:clamp(28px,3.2vw,44px);
+  --chh:calc(var(--fxh) + var(--colh) + 1px); --bh:var(--fxh);
+  color-scheme:light;
+}
+@media (max-width:899px){:root{--cw:96px}}
+@media (max-height:720px){:root{--g2:var(--rh)}}
+@media (max-width:599px){:root{--colh:0px;--fxh:45px;--cw:80px;--g2:var(--rh)}}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.65 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,ol,ul,dl,dd,figure{margin:0}
+ol,ul{padding:0;list-style:none}
+a{color:inherit}
+button{font:inherit}
+::selection{background:var(--sand);color:var(--ink)}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{width:100%;max-width:1360px;margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
+mark{background:linear-gradient(transparent 58%,var(--sand) 58%);color:inherit;padding:0 .08em}
+section[id]{scroll-margin-top:calc(var(--chh) + 8px)}
+html{scroll-padding-top:calc(var(--chh) + 12px)}
+
+/* barra de progresso do topo e conteúdo principal */
+.bar{position:fixed;z-index:60;left:0;top:env(safe-area-inset-top,0px);height:3px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:0 50%}
+main{position:relative;z-index:1;background:var(--paper);overflow-x:clip}
+
+/* moldura de planilha: barra de fórmulas (com idioma e navegação) e letras de coluna, na mesma cor do fundo */
+body::before{content:"";position:fixed;z-index:45;left:0;right:0;top:0;height:env(safe-area-inset-top,0px);background:var(--paper)}
+.chrome{position:sticky;z-index:40;top:env(safe-area-inset-top,0px);background:var(--paper)}
+.fbar{display:flex;align-items:stretch;height:var(--fxh);padding-right:env(safe-area-inset-right,0px);border-bottom:1px solid var(--line-2)}
+.nbx{flex:0 0 auto;display:flex;align-items:center;width:108px;padding:0 14px;border-right:1px solid var(--line-2);font:500 13px/1 var(--mono);color:var(--ink);user-select:none;-webkit-user-select:none}
+.fxi{flex:0 0 44px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line-2);font:italic 400 19px/1 var(--serif);color:var(--ink-3);user-select:none;-webkit-user-select:none}
+.fml{flex:1 1 auto;min-width:0;display:flex;align-items:center;padding:0 14px;font:400 13px/1 var(--mono);color:var(--ink);user-select:none;-webkit-user-select:none}
+.fxs{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:pre}
+.fn{color:var(--red-ink)}
+.cr{flex:0 0 7px;width:7px;height:16px;margin-left:2px;background:var(--ink);animation:blink 1.05s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lang{display:flex;flex:0 0 auto;border-left:1px solid var(--line-2)}
+.lang button{width:40px;border:0;background:transparent;color:var(--ink-3);font:500 11px/1 var(--mono);letter-spacing:.04em;cursor:pointer}
+.lang button:hover{background:var(--paper-3);color:var(--ink)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.nav{display:flex;flex:0 0 auto}
+.nav a{position:relative;display:flex;align-items:center;padding:0 20px;border-left:1px solid var(--line-2);font:500 14px/1 var(--font);text-decoration:none;color:var(--ink);white-space:nowrap}
+.nav a:hover{background:var(--paper-3)}
+.nav a.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--ink)}
+.nav a.cta{padding:0 22px;border-left-color:var(--red);background:var(--red);color:#fff}
+.nav a.cta:hover{background:var(--ink);border-left-color:var(--ink)}
+@media (max-width:979px){.nav a:not(.cta){display:none}}
+@media (max-width:599px){
+  .nbx{width:56px;padding:0 10px;font-size:12px}
+  .fxi{flex-basis:30px;font-size:17px}
+  .fml{padding:0 10px;font-size:12px}
+  .lang button{width:44px;font-size:12px}
+  .nav{display:none}
+}
+/* as letras das colunas ficam coladas sob a barra de fórmulas só enquanto a grade existe: o bloco .zt termina com a zona
+   (primeira tela, Formação e Competências), então elas saem da tela junto com a grade e a barra fica sozinha no resto da página;
+   a variável --k (de 1 a 0) vem do JS, com a mesma curva do degradê .fadeo, e faz as letras e as linhas esmaecerem na mesma medida
+   em que a grade some (sem JS ela vale 1 e as letras ficam inteiras) */
+.cols{position:sticky;z-index:39;top:calc(env(safe-area-inset-top,0px) + var(--fxh));display:flex;height:calc(var(--colh) + 1px);background:var(--paper)}
+.cols::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line-2);opacity:var(--k,1)}
+.cl{flex:1 1 auto;min-width:0;display:flex;height:var(--colh);overflow:hidden;opacity:var(--k,1)}
+.cl i{flex:0 0 var(--cw);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line-2);font:400 11px/1 var(--mono);font-style:normal;color:var(--ink-3);user-select:none;-webkit-user-select:none}
+.cl i.on{background:var(--ink);color:var(--paper)}
+@media (max-width:599px){.cols{display:none}}
+.sheet{position:relative}
+
+/* a grade de planilha cobre a primeira tela, a Formação e as Competências, onde vai sumindo num degradê (.fadeo);
+   os vãos entre os blocos são de duas linhas da grade (--g2) */
+.zone{position:relative}
+.hero{position:relative;z-index:1}
+.gridbg{position:absolute;z-index:0;inset:0;pointer-events:none;
+  background-image:linear-gradient(to left,var(--grid) 1px,transparent 1px),linear-gradient(to top,var(--grid) 1px,transparent 1px);
+  background-size:var(--cw) var(--rh),var(--cw) var(--rh)}
+/* degradê: uma película da cor do papel, dentro do quadro de Competências, cobre as linhas aos poucos até sumirem no fim dele */
+.fadeo{position:absolute;z-index:-1;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(var(--paper-rgb),0) 0,rgba(var(--paper-rgb),.044) 12%,rgba(var(--paper-rgb),.125) 24%,rgba(var(--paper-rgb),.23) 36%,rgba(var(--paper-rgb),.354) 48%,rgba(var(--paper-rgb),.494) 60%,rgba(var(--paper-rgb),.65) 72%,rgba(var(--paper-rgb),.818) 84%,rgba(var(--paper-rgb),.938) 92%,var(--paper) 96%)}
+.hw{position:relative;z-index:1;display:flex;flex-direction:column}
+.hmeta{display:flex;flex-wrap:wrap;align-items:center;gap:0 28px;font:400 12px/var(--rh) var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.hmeta .av{display:inline-flex;align-items:center;gap:8px}
+.hmeta .dot{flex:none;width:8px;height:8px;background:var(--red)}
+.hmeta .mu{color:var(--ink-3)}
+.sp{flex:none;height:var(--g2)}
+.hmain{display:grid;grid-template-columns:minmax(0,1fr) clamp(190px,24%,300px);column-gap:clamp(20px,3vw,40px);margin-top:var(--g2)}
+.hl{grid-column:1;grid-row:1;min-width:0;container-type:inline-size}
+.hh{position:relative;display:block;font-family:var(--display);font-weight:850;font-stretch:66%;font-size:clamp(2.6rem,7.4vw,7.4rem);line-height:.86;letter-spacing:-.025em;color:var(--ink);margin:-.064em 0 -.0236em}
+/* o tamanho acompanha a largura da coluna (cqw), não passa de 7rem e, em janelas baixas, de 13,2% da altura, para os botões ficarem na primeira tela */
+@supports (width:1cqw){.hh{font-size:min(calc(100cqw / var(--hd,7.7)),13.2vh,7rem)}}
+html[lang="en"] .hh{--hd:7.6}
+.ln{display:block;white-space:nowrap}
+.ln+.ln{margin-top:.15em}
+.w{position:relative;display:inline-block;vertical-align:top;margin-right:.098em}
+.ans{font-family:var(--serif);font-style:italic;font-weight:400;font-stretch:normal;font-size:1em;letter-spacing:-.02em;padding-right:.12em;color:var(--red)}
+.f{display:block;white-space:nowrap}
+/* aspas da citação: a de abertura fica pendurada na margem (o texto alinha à esquerda), a de fecho acompanha o fim da última linha */
+.q{position:absolute;right:100%;top:.03em;margin-right:.08em;font-family:var(--serif);font-style:italic;font-weight:400;font-stretch:normal;font-size:min(1em,calc((var(--gl) - 4px) * 2.45));line-height:1;letter-spacing:0;color:var(--red)}
+.ans .f::after{content:"\201D"}
+.hh.pre .w .q{visibility:hidden}
+.hh.pre .w.sc .q,.hh.pre .w.ok .q{visibility:visible}
+.cite{margin-top:calc(var(--rh) * .5);font:400 12px/var(--rh) var(--mono);letter-spacing:.02em;color:var(--ink-3)}
+.d{position:absolute;left:0;bottom:.1em;display:block;font:500 .46em/1 var(--mono);font-stretch:normal;font-style:normal;letter-spacing:0;color:var(--ink-3);white-space:pre;text-decoration:underline wavy var(--red);text-decoration-thickness:.07em;text-underline-offset:.14em;opacity:0;pointer-events:none}
+.hh.pre .w .f{visibility:hidden}
+.hh.pre .w .d{opacity:1}
+.hh.pre .w.sc .f,.hh.pre .w.ok .f{visibility:visible}
+.hh.pre .w.sc .d,.hh.pre .w.ok .d{opacity:0}
+.sel{position:absolute;left:0;top:0;width:0;height:0;border:3px solid var(--red);pointer-events:none;opacity:0;transition:left .14s,top .14s,width .14s,height .14s,opacity .2s}
+.sel.on{opacity:1}
+.tag{position:absolute;left:-3px;bottom:100%;height:23px;padding:0 8px;background:var(--red);color:#fff;font:500 11px/23px var(--mono);font-stretch:normal;letter-spacing:0;white-space:nowrap}
+.fh{position:absolute;right:-8px;bottom:-8px;width:10px;height:10px;background:var(--red);border:2px solid var(--paper)}
+.lede{grid-column:1;grid-row:2;margin-top:clamp(18px,1.7vw,25px);max-width:38em;font-size:clamp(1.05rem,1.05vw,1.3rem);line-height:1.5;color:var(--ink-2);text-wrap:pretty}
+.lede b{font-weight:700;color:var(--ink)}
+.ctas{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(16px,1.6vw,22px)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;border:1px solid var(--ink);font:600 14px/1.2 var(--font);text-decoration:none;color:var(--ink)}
+.btn.dark{padding:0 18px;background:var(--ink);color:var(--paper);cursor:pointer}
+.btn.dark:hover{background:var(--red);border-color:var(--red);color:#fff}
+.mw{position:relative;min-width:0}
+.ctas .mw{display:flex}
+.mailg{padding:0 16px;gap:10px;background:transparent}
+.mailg:hover{background:var(--ink);color:var(--paper)}
+.mi{flex:none;display:block;width:16px;height:16px}
+.em{user-select:all;-webkit-user-select:all;overflow-wrap:anywhere}
+.mhint{position:absolute;left:0;top:calc(100% + 8px);z-index:2;width:max-content;max-width:min(36rem,calc(100vw - 2 * var(--pad)));font:400 12px/1.45 var(--mono);color:var(--ink-3);opacity:0;visibility:hidden;transition:opacity .2s,visibility 0s .2s;pointer-events:none}
+.mhint.on{opacity:1;visibility:visible;transition-delay:0s}
+.hrule{border-top:1px solid var(--ink)}
+.hero+.band::before{display:none}
+.hero+.band{padding-top:max(var(--g2),36px)}
+
+/* retrato 4:5 apoiado na base do título, com marca de comentário no canto; a foto vai embutida na página (data URI) e o quadro
+   a recorta com object-fit, ancorada no topo para o cabelo nunca ser cortado quando o quadro fica mais largo que 4:5 */
+.ph{position:relative;grid-column:2;grid-row:1 / span 2;align-self:stretch;margin:0;background:var(--paper-3)}
+.phi{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.out a{text-underline-offset:4px;text-decoration-thickness:2px;text-decoration-color:var(--clay)}
+.cm{position:absolute;right:0;top:0;width:16px;height:16px;background:var(--red);clip-path:polygon(0 0,100% 0,100% 100%)}
+.cmt{position:absolute;z-index:2;right:0;bottom:calc(100% + 12px);width:226px;padding:8px 10px;background:var(--paper-4);border:1px solid var(--ink);font:400 12px/1.5 var(--mono);color:var(--ink);opacity:0;visibility:hidden;transform:translateY(-3px);transition:opacity .15s,transform .15s,visibility 0s .15s;pointer-events:none}
+.cmt::after{content:"";position:absolute;right:7px;top:100%;height:12px;border-left:1px solid var(--ink)}
+.ph:hover .cmt,.ph:focus-within .cmt{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+@media (max-width:999px){
+  .hmain{grid-template-columns:minmax(0,1fr)}
+  .ph{grid-column:1;grid-row:2;align-self:start;width:100%;max-width:16rem;aspect-ratio:4/5;margin-top:clamp(28px,5vw,40px)}
+  .lede{grid-row:3}
+}
+
+/* faixas curtas: rótulo à esquerda, conteúdo à direita */
+.band{position:relative;z-index:1;padding-block:0 var(--sec)}
+.band::before{content:"";display:block;box-sizing:border-box;width:100%;max-width:1360px;height:1px;margin:0 auto var(--sec);padding-inline:var(--gl) var(--gr);background:var(--ink);background-clip:content-box}
+.lgrid{display:grid;grid-template-columns:minmax(0,13.5rem) minmax(0,1fr);gap:16px clamp(24px,5vw,64px);align-items:start}
+@media (max-width:959px){.lgrid{grid-template-columns:minmax(0,1fr)}}
+.lgrid>h2{font:850 1.9rem/1 var(--display);font-stretch:66%;letter-spacing:-.02em;word-spacing:.14em}
+.lgrid>h2 small{display:block;margin-top:8px;font:400 .82rem/1.45 var(--font);letter-spacing:0;word-spacing:0;color:var(--ink-3)}
+.bh{font:850 clamp(2.2rem,4.6vw,3.7rem)/.96 var(--display);font-stretch:66%;letter-spacing:-.025em;word-spacing:.14em;text-wrap:balance}
+.nw{white-space:nowrap}
+.lead{margin-top:12px;color:var(--ink-2);max-width:40rem}
+h3.sub{font-size:.9rem;font-weight:600;margin-bottom:8px}
+h4{margin-bottom:8px;font:500 11px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
