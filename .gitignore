@@ -1,0 +1,10 @@
+# macOS e Windows
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+
+# Dependências, caso um dia entre uma ferramenta de build
+node_modules/
